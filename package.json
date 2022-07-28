@@ -1,0 +1,25 @@
+{
+  "name": "spotify-rooms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "cd server && node server",
+    "web": "cd web && npm start",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run web\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CanSolv/SpotifyRooms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CanSolv/SpotifyRooms/issues"
+  },
+  "homepage": "https://github.com/CanSolv/SpotifyRooms#readme",
+  "dependencies": {
+    "concurrently": "^7.3.0"
+  }
+}

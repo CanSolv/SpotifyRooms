@@ -1,0 +1,64 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* EXPLORE */
+
+.explore-page {
+    z-index: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 10.5%;
+    display: flex;
+    flex-direction: column;
+    background-color: #292929;
+}
+
+.explore-page > h1 {
+    color: white;
+    font-size: 31px;
+    position: relative;
+    margin: 20px 5px 20px;
+}
+
+.rooms {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 50px;
+    width: 90vw;
+    height: 60vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    overflow-y: auto;
+    /* padding-top: 25vh; */
+}
+
+.first-column > img {
+    width: 120px;
+    height: 120px;
+}
+
+.second-column > img {
+    width: 120px;
+    height: 120px;
+}
+
+.first-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    height: inherit;
+}
+
+.second-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    height: inherit;
+}
