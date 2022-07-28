@@ -1,14 +1,25 @@
+import Favs from "./components/Favs";
+import Friends from "./components/Friends";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import NewTracks from "./components/NewTracks";
+import PlayBar from "./components/PlayBar";
+import RoomsForYou from "./components/RoomsForYou";
+
 function App() {
   return (
     <>
-      Test
-      <span className="icon icon-headphone"></span>
-      <div className="fyp">
-        <img src="https://ticari.tarkett.com.tr/media/img/M/TH_3917011_3707003_3708011_3912011_3914011_800_800.jpg" />
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX//wCKxvRFAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" />
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Light_green.PNG" />
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEUAAP+KeNJXAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC" />
+      <Header />
+      <div className="content">
+        <div className="wrapper">
+          <RoomsForYou />
+          <Favs />
+          <Friends />
+          <NewTracks />
+        </div>
       </div>
+      <PlayBar />
+      <Nav />
     </>
   );
 }

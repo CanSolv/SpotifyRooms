@@ -1,0 +1,134 @@
+.bar.pbar {
+  background-color: #6c7d8a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 11;
+  border-top: 1px outset gray;
+  border-bottom: 1px outset gray;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  box-sizing: border-box;
+}
+
+.time-bar {
+  -webkit-appearance: none;
+  background: linear-gradient(90deg, #826eab 60%, black 60%);
+  border-radius: 12px;
+  height: 3.5px;
+  width: 98vw;
+}
+
+.time-bar:hover {
+  opacity: 1;
+}
+
+.time-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  background: white;
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+}
+
+.time-bar::-moz-range-thumb {
+  cursor: pointer;
+  background: white;
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+}
+
+.time-bar::-webkit-slider-thumb:hover {
+  background-color: #89c4ff;
+}
+
+/* PLAYER */
+
+.player {
+  background-color: #6c7d8a;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  column-gap: 20vw;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+/*CURRENT DIV*/
+
+.current {
+  order: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 5px;
+  color: black;
+  block-size: inherit;
+}
+
+.current > img {
+  order: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.current > .text {
+  font-size: 9px;
+  order: 1;
+}
+
+#current-artist {
+  opacity: 0.75;
+}
+
+.likesong:before {
+  order: 2;
+}
+
+/*CONTROLS DIV*/
+
+.controls {
+  order: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+}
+
+.pause-btn {
+  display: flex;
+  background-color: white;
+  color: #4e5b74;
+  border-radius: 50px;
+  font-size: 20px;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+}
+
+.pause-btn:hover {
+  background-color: #1a1a1a;
+}
+
+.back-btn:hover,
+.forward-btn:hover {
+  color: #1a1a1a;
+}
+
+.forward-btn:active,
+.back-btn:active {
+  color: white;
+}
+
+.pause-btn:active {
+  background-color: white;
+}

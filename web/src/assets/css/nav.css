@@ -1,0 +1,85 @@
+.nbar {
+  background-color: #6c7d8a;
+  z-index: 10;
+  width: 100vw;
+  position: fixed;
+  bottom: 0px;
+  border-top: #1a1a1a solid 2px;
+  display: flex;
+  color: #1a1a1a;
+  font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  column-gap: 20vw;
+  padding-top: 0.5vh;
+}
+
+.home:hover,
+.library:hover,
+.likedsong:hover,
+.explore:hover {
+  color: white;
+}
+
+.home:active,
+.library:active,
+.likedsong:active,
+.explore:active {
+  color: #1a1a1a;
+}
+
+.home {
+  order: 1;
+  display: inline-block;
+}
+
+.explore {
+  order: 2;
+  display: inline-block;
+}
+
+.library {
+  order: 3;
+  display: inline-block;
+}
+
+.likedsong {
+  order: 4;
+  display: inline-block;
+}
+
+/*ICON SETTINGS*/
+
+a {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-decoration: none;
+}
+
+input {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}

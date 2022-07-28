@@ -1,0 +1,83 @@
+/*Header Css*/
+
+header {
+    padding: 10px;
+    background-color: #6c7d8a;
+    border-bottom: 1px solid black;
+    height: 40px;
+}
+
+.bar.tbar {
+    z-index: 4;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .search {
+    order: 0;
+  }
+  
+  #searchInput {
+    background-color: white;
+    border: 1px solid #1a1a1a;
+    border-radius: 50px;
+    padding: 5px;
+    width: 160px;
+    font-size: 12px;
+    block-size: inherit;
+  }
+  
+  .pfp {
+    order: 0;
+    vertical-align: middle;
+    max-width: 37px;
+    max-height: 37px;
+    border-radius: 50%;
+    border: solid 2px;
+    border-color: rgba(10.2, 10.2, 10.2, 0);
+    box-sizing: border-box;
+  }
+  
+  .profile-buttons {
+    margin-right: 5px;
+    order: 2;
+    display: flex;
+    position: relative;
+    float: right;
+    font-size: 17px;
+    flex-direction: row-reverse;
+    column-gap: 20px;
+    width: 35px;
+    overflow: hidden;
+    transition-property: width;
+    transition-duration: 1.5s;
+    transition: 0.7s;
+  }
+  
+  .profile-buttons:hover {
+    width: 40vw;
+  }
+  
+  .hoverable {
+    position: relative;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row-reverse;
+    column-gap: 20px;
+  }
+  
+  .notifications:hover,
+  .settings:hover,
+  .bookmarks:hover {
+    color: white;
+  }
+  
+  .notifications:active,
+  .settings:active,
+  .bookmarks:active {
+    color: #1a1a1a;
+  }
