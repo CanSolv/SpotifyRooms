@@ -1,42 +1,41 @@
-/*
-access_token: BQDrh2uwIEc7-zkph9oTX1BjRJdW21xJNJfg-JCkjnhiJHV8F9wKaWSgXX1DAaf9dHF8sNEVbNchxX23cYYf_4ugrU8K_eJOSeEiPQGhNdVnp8mbiI84kkm-PnYBYTWeoMShw53KB8c_VYg3QqzrI5SWz-r4lHl_1tofJqjGdsiVeLBWJpaNMNFRSWnDpLYQNCBmAv_PSyPQUe_pWUY2orED3qwuNxXGJjYZ9ypiMYwnRNn2JD8vP9pLSID_ALDx9wkg75Oe-JgjfUhwUCZnMx-jbThg0r_D6ZDSVJHhrVidkrkV0kpGU9dXGqgEzpXp
-refresh_token: AQCGgt5ld9rRottuPN7jTXrobGdEr_t4ZIYWqa6bmo07bqrMDNy-84QpFGxA3gXQJdS4GjXCIPfoHnOTfUEuREzfOrn3C6UsmFl5b60dJzRiXpFpzaSAug4gpAKybV31YRA
-*/
-
 const SpotifyWebApi = require("spotify-web-api-node");
-const token =
-  "BQDrh2uwIEc7-zkph9oTX1BjRJdW21xJNJfg-JCkjnhiJHV8F9wKaWSgXX1DAaf9dHF8sNEVbNchxX23cYYf_4ugrU8K_eJOSeEiPQGhNdVnp8mbiI84kkm-PnYBYTWeoMShw53KB8c_VYg3QqzrI5SWz-r4lHl_1tofJqjGdsiVeLBWJpaNMNFRSWnDpLYQNCBmAv_PSyPQUe_pWUY2orED3qwuNxXGJjYZ9ypiMYwnRNn2JD8vP9pLSID_ALDx9wkg75Oe-JgjfUhwUCZnMx-jbThg0r_D6ZDSVJHhrVidkrkV0kpGU9dXGqgEzpXp";
-
 const spotifyApi = new SpotifyWebApi();
-spotifyApi.setAccessToken(token);
+
+let accessToken = "";
+let refreshToken = "";
+
+function initApplication(token) {
+  accessToken = token;
+  spotifyApi.setAccessToken(token);
+}
 
 //GET MY PROFILE DATA
 function getMyData() {
-  (async () => {
+  return new Promise(async (resolve, reject) => {
     const me = await spotifyApi.getMe();
-    // console.log(me.body);
-    getUserPlaylists(me.body.id);
-  })().catch((e) => {
-    console.error(e);
+    console.log(me);
+    const data = await getUserPlaylists(me.body.id);
+
+    resolve(data);
   });
 }
 
 //GET MY PLAYLISTS
 async function getUserPlaylists(userName) {
   const data = await spotifyApi.getUserPlaylists(userName);
-
-  console.log("---------------+++++++++++++++++++++++++");
   let playlists = [];
 
   for (let playlist of data.body.items) {
-    console.log(playlist.name + " " + playlist.id);
+    const tracks = await getPlaylistTracks(playlist.id, playlist.name);
 
-    let tracks = await getPlaylistTracks(playlist.id, playlist.name);
-    // console.log(tracks);
-
-    const tracksJSON = { tracks };
-    let data = JSON.stringify(tracksJSON);
+    playlists.push({
+      playlistName: playlist.name,
+      playlistId: playlist.id,
+      tracks,
+    });
   }
+
+  return playlists;
 }
 
 //GET SONGS FROM PLAYLIST
@@ -47,22 +46,19 @@ async function getPlaylistTracks(playlistId, playlistName) {
     fields: "items",
   });
 
-  // console.log('The playlist contains these tracks', data.body);
-  // console.log('The playlist contains these tracks: ', data.body.items[0].track);
-  // console.log("'" + playlistName + "'" + ' contains these tracks:');
   let tracks = [];
 
   for (let track_obj of data.body.items) {
     const track = track_obj.track;
     tracks.push(track);
-    console.log(track.name + " : " + track.artists[0].name);
-  }
+  }  
 
-  console.log("---------------+++++++++++++++++++++++++");
+  console.log("tracks \n");
   return tracks;
 }
 
 module.exports = {
+  initApplication,
   getMyData,
   getUserPlaylists,
   getPlaylistTracks,
